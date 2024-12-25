@@ -1,0 +1,216 @@
+/* Reset default margin, padding, and set box-sizing to border-box for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style for the body element */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(145deg, #012d57, #184d75, #647ff8);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Style for the calculator container */
+.calculator {
+  width: 90%; /* Fluid width */
+  max-width: 370px; /* Max width for larger screens */
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #0502aa94;
+  background: #ffffff4d;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* First Circle decoration */
+.calculator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 155%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: #3b34a552;
+  z-index: -1;
+}
+
+/* Second Circle decoration */
+.calculator::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(38, 0, 207, 0.253);
+  z-index: -2;
+}
+
+/* Third Circle decoration */
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-80px, -40px); }
+  100% { transform: translate(-120px, -100px); }
+}
+
+.circle {
+  position: absolute;
+  bottom: -135px;
+  right: -40px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(101, 21, 206, 0.363);
+  z-index: -3;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Additional Circle decorations */
+.circle1 {
+  position: absolute;
+  bottom: -50px;
+  right: -130px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #1515ce5d;
+  z-index: -3;
+}
+
+.circle2 {
+  position: absolute;
+  top: -55px;
+  right: -120px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: #15cece5d;
+  z-index: -3;
+}
+
+/* Style for the display area */
+.display {
+  margin: 10px auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.3); /* Glass effect */
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), inset 0px 4px 8px rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+/* Style for the expression text */
+.expression {
+  font-size: 1.2rem;
+  color: #000000b3;
+  margin-bottom: 5px;
+  text-align: right;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Style for the display input */
+#display {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  text-align: right;
+  font-size: 1.8rem;
+  color: #000;
+  background: none; /* Transparent for seamless design */
+  outline: none;
+  pointer-events: none;
+}
+
+/* Style for the buttons container */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Style for individual buttons */
+.button {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.5em;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background: #ffffff48;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 2px 5px #000000a8, 0 3px 5px #00000033;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+  background: #0000008a;
+  color: #fff;
+}
+
+/* Active effect for buttons */
+.button:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for special buttons */
+.button1 {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background: #000000a4;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 2px 5px #000000c4, 0 3px 5px #000000da;
+  color: #d84400;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+/* Hover effect for special buttons */
+.button1:hover {
+  background: #000000e3;
+}
+
+/* Active effect for special buttons */
+.button1:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the equal button */
+.equal {
+  background: linear-gradient(145deg, #47484bd7, #000000da);
+  color: #d84400;
+  grid-column: span 2;
+  transition: all 1s ease-in-out;
+}
+
+/* Hover effect for the equal button */
+.equal:hover {
+  background: linear-gradient(145deg, #383c3f, #565c61);
+}

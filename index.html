@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glass Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.js">
+</head>
+
+<body>
+  <div class="calculator">
+    <div class="display">
+      <!-- Display area for the calculator expression -->
+      <!-- <div id="expression" class="expression"></div> -->
+      <!-- Input field to show the current calculation (disabled for user input) -->
+      <input type="text" id="display" disable>
+    </div>
+
+    <!-- Decorative circles for styling -->
+    <div class="circle1"></div>
+
+    <div class="buttons">
+      <!-- Button to clear the display -->
+      <button class="button1" onclick="clearDisplay()">AC</button>
+      <!-- Button for opening bracket -->
+      <button class="button1" onclick="appendToDisplay('(')" onkeydown="KEYDWN(event)">(</button>
+      <!-- Button for closing bracket -->
+      <button class="button1" onclick="appendToDisplay(')')" onkeydown="KEYDWN(event)">)</button>
+
+      <!-- Button for addition operation -->
+      <button class="button1" onclick="appendToDisplay('+')" onkeydown="KEYDWN(event)"
+        style="grid-row: span 2;">+</button>
+      <!-- Number buttons -->
+      <button class="button" onclick="appendToDisplay('7')" onkeydown="KEYDWN(event)">7</button>
+      <button class="button" onclick="appendToDisplay('8')" onkeydown="KEYDWN(event)">8</button>
+      <button class="button" onclick="appendToDisplay('9')" onkeydown="KEYDWN(event)">9</button>
+
+      <button class="button" onclick="appendToDisplay('4')" onkeydown="KEYDWN(event)">4</button>
+      <button class="button" onclick="appendToDisplay('5')" onkeydown="KEYDWN(event)">5</button>
+      <button class="button" onclick="appendToDisplay('6')" onkeydown="KEYDWN(event)">6</button>
+      <!-- Button for subtraction operation -->
+      <button class="button1" onclick="appendToDisplay('-')" onkeydown="KEYDWN(event)">-</button>
+
+      
+      <button class="button" onclick="appendToDisplay('1')" onkeydown="KEYDWN(event)">1</button>
+      <button class="button" onclick="appendToDisplay('2')" onkeydown="KEYDWN(event)">2</button>
+      <button class="button" onclick="appendToDisplay('3')" onkeydown="KEYDWN(event)">3</button>
+      <button class="button1" onclick="appendToDisplay('*')" onkeydown="KEYDWN(event)">*</button>
+
+      <button class="button" onclick="appendToDisplay('0')" onkeydown="KEYDWN(event)">0</button>
+      <!-- Button for double zero -->
+      <button class="button" onclick="appendToDisplay('00')" onkeydown="KEYDWN(event)">00</button>
+      <!-- Button for decimal point -->
+      <button class="button" onclick="appendToDisplay('.')" onkeydown="KEYDWN(event)">.</button>
+      <!-- Button for division operation -->
+      <button class="button1" onclick="appendToDisplay('/')" onkeydown="KEYDWN(event)">/</button>
+
+
+      <!-- Button to delete the last character -->
+      <button class="button" onclick="deleteLast()">
+        <i class="fa-solid fa-delete-left fa-lg" style="color: #da4500;"></i>
+      </button>
+      <!-- Button to calculate the result -->
+      <button class="button equal" onclick="calculateResult()">=</button>
+      <!-- Button for percentage operation -->
+      <button class="button1" onclick="appendToDisplay('%')">%</button>
+    </div>
+
+    <!-- Decorative circles for styling -->
+    <div class="circle"></div>
+    <div class="circle2"></div>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

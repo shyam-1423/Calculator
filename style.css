@@ -12,13 +12,16 @@ body {
   align-items: center;
   height: 100vh;
   background: linear-gradient(145deg, #012d57, #184d75, #647ff8);
+  background-repeat: no-repeat;
   font-family: 'Arial', sans-serif;
 }
 
 /* Style for the calculator container */
 .calculator {
-  width: 90%; /* Fluid width */
-  max-width: 370px; /* Max width for larger screens */
+  width: 90%;
+  /* Fluid width */
+  max-width: 370px;
+  /* Max width for larger screens */
   padding: 20px;
   border-radius: 20px;
   border: 1px solid #0502aa94;
@@ -28,75 +31,52 @@ body {
   position: relative;
 }
 
-/* First Circle decoration */
-.calculator::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 155%;
-  transform: translate(-50%, -50%);
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  background: #3b34a552;
-  z-index: -1;
-}
 
-/* Second Circle decoration */
+
+/* Responsive Second Circle decoration */
 .calculator::after {
   content: '';
   position: absolute;
-  top: -10%;
-  left: -10%;
+  top: 8%;
+  left: 10%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
+  width: 25vw;
+  /* Adjust width based on viewport width */
+  height: 25vw;
+  /* Maintain aspect ratio */
+  max-width: 200px;
+  /* Limit maximum size */
+  max-height: 200px;
   border-radius: 50%;
-  background: rgba(38, 0, 207, 0.253);
+  background: rgba(24, 0, 207, 0.253);
   z-index: -2;
 }
 
-/* Third Circle decoration */
-@keyframes float {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(-80px, -40px); }
-  100% { transform: translate(-120px, -100px); }
-}
-
+/* Responsive floating circle */
 .circle {
+  width: 15vw;
+  height: 15vw;
+  max-width: 110px;
+  max-height: 110px;
   position: absolute;
-  bottom: -135px;
-  right: -40px;
-  width: 150px;
-  height: 150px;
+  bottom: -3vw;
+  right: -3vw;
   border-radius: 50%;
   background: rgba(101, 21, 206, 0.363);
   z-index: -3;
-  animation: float 3s ease-in-out infinite;
 }
 
-/* Additional Circle decorations */
-.circle1 {
-  position: absolute;
-  bottom: -50px;
-  right: -130px;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: #1515ce5d;
-  z-index: -3;
+/* Adjust circle size and position for smaller screens */
+@media (max-width: 480px) {
+  .calculator::after {
+   display: none;
+  }
+
+  .circle {
+   display: none;
+  }
 }
 
-.circle2 {
-  position: absolute;
-  top: -55px;
-  right: -120px;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  background: #15cece5d;
-  z-index: -3;
-}
 
 /* Style for the display area */
 .display {
@@ -107,7 +87,8 @@ body {
   align-items: flex-end;
   position: relative;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.3); /* Glass effect */
+  background: rgba(255, 255, 255, 0.3);
+  /* Glass effect */
   border-radius: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), inset 0px 4px 8px rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(8px);
@@ -134,7 +115,8 @@ body {
   text-align: right;
   font-size: 1.8rem;
   color: #000;
-  background: none; /* Transparent for seamless design */
+  background: none;
+  /* Transparent for seamless design */
   outline: none;
   pointer-events: none;
 }
